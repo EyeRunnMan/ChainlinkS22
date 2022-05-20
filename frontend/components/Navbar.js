@@ -22,8 +22,8 @@ const Navbar = () => {
   return (
     <div className="z-50">
       <div>
-        <nav className="flex flex-row justify-between items-center flex-wrap pt-2 pl-6 pr-6 bg-white">
-          <img className="w-6 lg:w-6 " src="/airnft.svg"></img>
+        <nav className="flex flex-row justify-between items-center flex-wrap pt-2 pl-6 pr-6 bg-transparent">
+          <img className="w-8 lg:w-8 " src="/airnft.svg"></img>
           <p className="ml-4 text-3xl font-bold text-black">airNFT</p>
           <button
             className="inline-flex p-3 rounded lg:hidden text-black ml-auto hover:text-black outline-none"
@@ -56,8 +56,8 @@ const Navbar = () => {
                     <a
                       className={`mr-8 mt-2 lg:mt-0 text-xl ${
                         router.pathname === item.path
-                          ? "text-primary"
-                          : "hover:text-primary text-black"
+                          ? "text-gray-600"
+                          : "hover:text-gray-600 text-black"
                       }  `}
                     >
                       {item.title}
