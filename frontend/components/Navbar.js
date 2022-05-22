@@ -5,7 +5,7 @@ import { useRouter } from "next/router";
 
 const navlinks = [
   { title: "Home", path: "/" },
-  { title: "Create", path: "/mint" },
+  { title: "Create", path: "/create" },
   { title: "Explore", path: "/explore" },
   { title: "Profile", path: "/profile" },
 ];

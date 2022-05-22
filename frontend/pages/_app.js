@@ -8,7 +8,7 @@ const SERVER_URL = process.env.NEXT_PUBLIC_MORALIS_SERVER_URL;
 function App({ Component, pageProps }) {
   return (
     <MoralisProvider appId={API_ID} serverUrl={SERVER_URL}>
-      <div className="bg-gradient-to-tr from-lime-200 to-sky-600 h-screen">
+      <div className="bg-gradient-to-tr from-lime-200 to-sky-600 w-screen lg:h-screen">
         <Navbar />
         <Component {...pageProps} />
       </div>

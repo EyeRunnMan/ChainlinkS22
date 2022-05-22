@@ -20,10 +20,12 @@ const NFTCard = (props) => {
                 key={key}
               >
                 <Card>
-                  <img
-                    src={`https://ipfs.io/ipfs/QmemsvqAzJYEQpvfCK1TTqNVRqdb6WkW9qRkYDV3pAxAfn/AIRE-${props.NFTs[key].token_id}.png`}
-                    className="w-100 rounded-xl"
-                  ></img>
+                  {
+                    <img
+                      src={`https://ipfs.io/ipfs/QmemsvqAzJYEQpvfCK1TTqNVRqdb6WkW9qRkYDV3pAxAfn/AIRE-${props.NFTs[key].token_id}.png`}
+                      className="w-100 rounded-xl"
+                    ></img>
+                  }
                   <p className="font-bold text-black ml-8 mt-5 mb-5">
                     {props.NFTs[key].name + " #" + props.NFTs[key].token_id}
                   </p>

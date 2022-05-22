@@ -34,12 +34,12 @@ export default function Home() {
 
   return (
     <MoralisProvider appId={API_ID} serverUrl={SERVER_URL}>
-      <div className="flex flex-row justify-evenly mt-5">
-        <div className="flex flex-col items-center justify-evenly">
+      <div className="flex flex-col bg-transparent items-center">
+        <div className="flex flex-col items-center items-center">
           {<NFTCard NFTs={NFTs}></NFTCard>}
         </div>
         <div>
-          <p className="text-5xl mt-20 mr-12 font-medium">
+          <p className="text-5xl mt-10 font-medium ">
             CREATIVITY + INTERACTION
           </p>
         </div>
