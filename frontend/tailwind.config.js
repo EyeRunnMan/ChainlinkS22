@@ -26,7 +26,8 @@ module.exports = {
         blue: {
           400: "#1FA2FE",
           500: "#0D99FC",
-          600: "#2381E4",
+          "form-field": "#2381E4",
+          "form-button": "#87CDFF",
         },
         primary: "#00BED7",
       },
