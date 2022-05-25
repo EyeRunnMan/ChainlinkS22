@@ -1,12 +1,13 @@
 import React, { useState } from "react";
-import { create as ipfsHttpClient, globSource } from "ipfs-http-client";
-var all$1 = require("it-all");
+// import { create as ipfsHttpClient } from "ipfs-http-client";
+import { Web3Storage } from "web3.storage";
 import Moralis from "moralis";
 import { useMoralis } from "react-moralis";
 import AirEx from "../utils/AirEx.json";
 const ethers = Moralis.web3Library;
 
-const client = ipfsHttpClient("https://ipfs.infura.io:5001/api/v0");
+//const client = ipfsHttpClient("https://ipfs.infura.io:5001/api/v0");
+const client = new Web3Storage({ token: process.env.NEXT_PUBLIC_WEB3_API_KEY });
 
 export default function Create() {
   const { isAuthenticated } = useMoralis();
@@ -47,52 +48,69 @@ export default function Create() {
         formInput.accessLink,
         formInput.subscriptionId
       );
+      console.log([
+        formInput.name,
+        formInput.symbol,
+        formInput.description,
+        formInput.image,
+        formInput.accessLink,
+        formInput.subscriptionId,
+      ]);
       console.log(contract.address, contract.deployTransaction);
     }
   }
 
   async function onChange(e) {
     if (e.target.files.length === 1) {
-      const file = e.target.files[0];
+      //const file = e.target.files[0];
 
       try {
-        const added = await client.add(file, {
-          progress: (prog) => console.log(`received: ${prog}`),
+        // const added = await client.add(file, {
+        //   progress: (prog) => console.log(`received: ${prog}`),
+        // });
+        // const url = `https://ipfs.infura.io/ipfs/${added.path}`;
+        // setFileUrl(url);
+        // updateFormInput({ ...formInput, image: "ipfs://" + added.path });
+        const cid = await client.put(e.target.files, {
+          wrapWithDirectory: false,
         });
-        const url = `https://ipfs.infura.io/ipfs/${added.path}`;
+        updateFormInput({ ...formInput, image: "ipfs://" + cid });
+        const url = `https://ipfs.infura.io/ipfs/${cid}`;
         setFileUrl(url);
-        updateFormInput({ ...formInput, image: "ipfs://" + added.path });
       } catch (e) {
         console.log(e);
       }
     } else if (e.target.files.length > 1) {
       const files = e.target.files;
       try {
-        var fileObjectsArray = Array.from(files).map(function (file) {
-          return {
-            path: file.name,
-            content: file,
-          };
-        });
-        return Promise.resolve(
-          all$1(
-            client.addAll(fileObjectsArray, {
-              wrapWithDirectory: true,
-            })
-          )
-        ).then(function (results) {
-          for (const obj of results) {
-            if (obj.path === "") {
-              updateFormInput({
-                ...formInput,
-                accessLink: "ipfs://" + obj.cid.toString(),
-              });
-            }
-          }
-          return results;
-        });
+        // var fileObjectsArray = Array.from(files).map(function (file) {
+        //   return {
+        //     path: file.name,
+        //     content: file,
+        //   };
+        // });
+        // return Promise.resolve(
+        //   all$1(
+        //     client.addAll(fileObjectsArray, {
+        //       wrapWithDirectory: true,
+        //     })
+        //   )
+        // ).then(function (results) {
+        //   for (const obj of results) {
+        //     if (obj.path === "") {
+        //       updateFormInput({
+        //         ...formInput,
+        //         accessLink: "ipfs://" + obj.cid.toString(),
+        //       });
+        //     }
+        //   }
+        //   return results;
+        // });
+        const cid = await client.put(files, { wrapWithDirectory: false });
+        updateFormInput({ ...formInput, accessLink: "ipfs://" + cid });
       } catch (e) {
-        return Promise.reject(e);
+        // return Promise.reject(e);
+        console.log(e);
       }
     }
   }
