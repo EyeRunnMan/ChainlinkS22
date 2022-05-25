@@ -1,10 +1,15 @@
 import React, { useState } from "react";
 import { create as ipfsHttpClient, globSource } from "ipfs-http-client";
 var all$1 = require("it-all");
+import Moralis from "moralis";
+import { useMoralis } from "react-moralis";
+import AirEx from "../utils/AirEx.json";
+const ethers = Moralis.web3Library;
 
 const client = ipfsHttpClient("https://ipfs.infura.io:5001/api/v0");
 
 export default function Create() {
+  const { isAuthenticated } = useMoralis();
   const [fileUrl, setFileUrl] = useState(null);
   const [formInput, updateFormInput] = useState({
     name: "",
@@ -14,6 +19,37 @@ export default function Create() {
     accessLink: "",
     subscriptionId: 137,
   });
+
+  const ABI = AirEx.abi;
+  const bytecode = AirEx.bytecode;
+  const provider = new ethers.providers.Web3Provider(ethereum);
+  const signer = provider.getSigner();
+
+  async function onSubmit(e) {
+    const factory = new ethers.ContractFactory(ABI, bytecode, signer);
+    console.log(factory);
+
+    const notNull = Object.values(formInput).every((value) => {
+      if (value !== null || value !== undefined || value !== "") {
+        return true;
+      }
+      return false;
+    });
+
+    console.log(notNull);
+
+    if (notNull) {
+      const contract = await factory.deploy(
+        formInput.name,
+        formInput.symbol,
+        formInput.description,
+        formInput.image,
+        formInput.accessLink,
+        formInput.subscriptionId
+      );
+      console.log(contract.address, contract.deployTransaction);
+    }
+  }
 
   async function onChange(e) {
     if (e.target.files.length === 1) {
@@ -116,7 +152,10 @@ export default function Create() {
           }}
         ></input>
 
-        <button className="font-bold mt-12 mb-24 w-48 bg-blue-form-button rounded p-4 shadow-lg">
+        <button
+          className="font-bold mt-12 mb-24 w-48 bg-blue-form-button rounded p-4 shadow-lg"
+          onClick={onSubmit}
+        >
           CREATE
         </button>
       </div>
