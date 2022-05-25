@@ -20,13 +20,12 @@ export default function Create() {
     subscriptionId: 137,
   });
 
-  const { ethereum } = window;
-  const ABI = AirEx.abi;
-  const bytecode = AirEx.bytecode;
-  const provider = new ethers.providers.Web3Provider(ethereum);
-  const signer = provider.getSigner();
-
   async function onSubmit(e) {
+    const { ethereum } = window;
+    const ABI = AirEx.abi;
+    const bytecode = AirEx.bytecode;
+    const provider = new ethers.providers.Web3Provider(ethereum);
+    const signer = provider.getSigner();
     const factory = new ethers.ContractFactory(ABI, bytecode, signer);
     console.log(factory);
 
