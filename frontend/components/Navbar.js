@@ -54,7 +54,7 @@ const Navbar = () => {
                 return (
                   <Link key={index} href={item.path}>
                     <a
-                      className={`mr-8 mt-2 lg:mt-0 text-xl ${
+                      className={`mr-8 mt-2 lg:mt-0 text-lg font-bold ${
                         router.pathname === item.path
                           ? "text-gray-600"
                           : "hover:text-gray-600 text-black"

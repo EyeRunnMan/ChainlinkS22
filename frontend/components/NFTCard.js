@@ -22,7 +22,10 @@ const NFTCard = (props) => {
                 <Card>
                   {
                     <img
-                      src={`https://ipfs.io/ipfs/QmemsvqAzJYEQpvfCK1TTqNVRqdb6WkW9qRkYDV3pAxAfn/AIRE-${props.NFTs[key].token_id}.png`}
+                      // src={`ipfs://${
+                      //   JSON.parse(props.NFTs[key].metadata).image
+                      // }`}
+                      src={`https://ipfs.io/ipfs/bafkreiepdaut42mgc3dqul7ly7bvatu54rxhaxunst2xbiyv6jf5dkn2ve`}
                       className="w-100 rounded-xl"
                     ></img>
                   }
