@@ -14,7 +14,7 @@ export default function Home() {
 
   const fetchAllTokenIds = async () => {
     const options = {
-      address: "0x7043390b0d6f39614133aB82e8f49574A177E56e",
+      address: "0xe7348A569c4b9419e2a913b70e12D300aA718CEe",
       chain: "mumbai",
     };
     NFTMetadata = await Web3Api.token.getAllTokenIds(options);
@@ -34,7 +34,7 @@ export default function Home() {
 
   return (
     <MoralisProvider appId={API_ID} serverUrl={SERVER_URL}>
-      <div className="flex flex-col bg-transparent items-center sm:h-[100vh]">
+      <div className="flex flex-col bg-transparent items-center sm:h-[100vh] md:h-[100vh]">
         <div className="flex flex-col items-center items-center">
           {<NFTCard NFTs={NFTs}></NFTCard>}
         </div>
