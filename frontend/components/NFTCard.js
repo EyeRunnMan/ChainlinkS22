@@ -7,9 +7,7 @@ const NFTCard = (props) => {
   return (
     <div className="flex lg:flex-row sm:flex-col md:flex-col flex-wrap lg:justify-between justify-around">
       {Object.keys(props.NFTs).map((key, value) => {
-        if (
-          props.NFTs[key].name === "Augmented Interactive Reality Experiences"
-        ) {
+        {
           return (
             <a
               href={`${OPENSEA_LINK}/${props.NFTs[key].token_address}/${props.NFTs[key].token_id}`}
@@ -22,10 +20,18 @@ const NFTCard = (props) => {
                 <Card>
                   {
                     <img
-                      // src={`ipfs://${
-                      //   JSON.parse(props.NFTs[key].metadata).image
-                      // }`}
-                      src={`https://ipfs.io/ipfs/bafkreiepdaut42mgc3dqul7ly7bvatu54rxhaxunst2xbiyv6jf5dkn2ve`}
+                      src={
+                        JSON.parse(props.NFTs[key].metadata) !== null
+                          ? `https://ipfs.io/ipfs/${JSON.parse(
+                              props.NFTs[key].metadata
+                            )["image"].substring(
+                              7,
+                              JSON.parse(props.NFTs[key].metadata)["image"]
+                                .length
+                            )}`
+                          : `https://ipfs.io/ipfs/bafkreiepdaut42mgc3dqul7ly7bvatu54rxhaxunst2xbiyv6jf5dkn2ve`
+                      }
+                      // src={`https://ipfs.io/ipfs/bafkreiepdaut42mgc3dqul7ly7bvatu54rxhaxunst2xbiyv6jf5dkn2ve`}
                       className="w-100 rounded-xl"
                     ></img>
                   }
