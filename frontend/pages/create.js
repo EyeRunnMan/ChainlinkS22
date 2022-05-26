@@ -71,7 +71,6 @@ export default function Create() {
       user.addUnique("contractsCreated", contract.address);
       user.save();
     }
-    router.push("/");
   }
 
   async function onChange(e) {
@@ -121,7 +120,7 @@ export default function Create() {
         //   }
         //   return results;
         // });
-        const cid = await client.put(files, { wrapWithDirectory: false });
+        const cid = await client.put(files);
         updateFormInput({ ...formInput, accessLink: "ipfs://" + cid });
       } catch (e) {
         // return Promise.reject(e);
