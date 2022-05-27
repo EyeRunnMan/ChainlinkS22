@@ -115,10 +115,10 @@ export default function Profile() {
             <h1 className="mt-20 font-bold text-3xl">
               YOUR COLLECTIONS (CONTRACTS)
             </h1>
-            <div>
+            <div className="flex flex-row">
               {user.attributes.contractsCreated.map(function (address) {
                 return (
-                  <div className="mt-8 text-blue-500 font-bold">
+                  <div className="flex flex-wrap mt-8 text-blue-500 font-bold lg:w-40 ">
                     <a
                       href={`https://mumbai.polygonscan.com/address/${address}`}
                       target="_blank"
@@ -131,7 +131,7 @@ export default function Profile() {
             </div>
             <h1 className="mt-12 font-bold text-3xl">MINT TOKEN</h1>
             <h4 className="mt-8 font-bold">COLLECTION</h4>
-            <h4 className="w-140 mt-2 mb-2">
+            <h4 className="w-140 mt-2 mb-2 text-gray-600">
               Enter your collection's contract address
             </h4>
             <input
@@ -141,7 +141,9 @@ export default function Profile() {
               }}
             ></input>
             <h4 className="mt-8 font-bold">TRAIT TYPE</h4>
-            <h4 className="w-140 mt-2 mb-2">Specify a trait type string</h4>
+            <h4 className="w-140 mt-2 mb-2 text-gray-600">
+              Specify a trait type
+            </h4>
             <input
               className="mt-2 border-blue-500 rounded p-4 lg:w-80 bg-blue-form-field"
               onChange={(e) => {
@@ -149,7 +151,9 @@ export default function Profile() {
               }}
             ></input>
             <h4 className="mt-8 font-bold">TRAIT VALUE</h4>
-            <h4 className="w-140 mt-2 mb-2">Specify a trait value string</h4>
+            <h4 className="w-140 mt-2 mb-2 text-gray-600">
+              Specify a trait value
+            </h4>
             <input
               className="mt-2 border-blue-500 rounded p-4 lg:w-80 bg-blue-form-field"
               onChange={(e) => {

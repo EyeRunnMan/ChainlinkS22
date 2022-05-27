@@ -34,7 +34,7 @@ export default function Home() {
 
   return (
     <MoralisProvider appId={API_ID} serverUrl={SERVER_URL}>
-      <div className="flex lg:flex-row flex-col bg-transparent items-center mt-40 justify-evenly sm:h-[100vh] md:h-[100vh] h-screen">
+      <div className="flex lg:flex-row flex-col bg-transparent items-center mt-20 lg:mt-0 justify-evenly sm:h-[100vh] md:h-[100vh] h-screen">
         <div className=" flex flex-col items-center lg:mb-80 mt-40 ">
           <div className="w-1/4 lg:mt-0 justify-center flex flex-row">
             <p className="lg:text-5xl text-2xl lg:ml-24 lg:w-8 md:w-6 md:mr-48 mr-2 font-bold ">

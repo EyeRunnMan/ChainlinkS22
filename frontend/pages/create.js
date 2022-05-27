@@ -135,7 +135,7 @@ export default function Create() {
         <div className="lg:w-1/4 w-1/2 lg:ml-60 ml-24 -mt-8 lg:mt-0 flex flex-col pb-12">
           <h1 className="mt-20 font-bold text-3xl">CREATE NEW COLLECTION</h1>
           <h4 className="mt-12 font-bold">IMAGE, VIDEO, AUDIO, OR 3D MODEL</h4>
-          <h4 className="w-140 mt-2 text-blue-500">
+          <h4 className="w-140 mt-2 text-gray-600">
             File types supported: JPG, PNG, GIF, SVG, MP4, WEBM, MP3, WAV, OGG,
             GLB, GLTF.
           </h4>
@@ -164,7 +164,7 @@ export default function Create() {
             }}
           ></input>
           <h4 className="mt-8 font-bold">EXTERNAL LINK</h4>
-          <h4 className="w-140 mt-2 mb-2">
+          <h4 className="w-140 mt-2 mb-2 text-gray-600">
             Upload your game folder that will be used to deploy a new instance
             of the AIRNFT smart contract, letting you mint randomized NFTs from
             this collection.
@@ -176,9 +176,8 @@ export default function Create() {
             onChange={onChange}
           />
           <h4 className="mt-8 font-bold">DESCRIPTION</h4>
-          <h4 className="w-140 mt-2">
-            The description will be included on the item's detail page
-            underneath its image.
+          <h4 className="w-140 mt-2 text-gray-600">
+            Include details about the collection
           </h4>
           <input
             className="mt-4 border rounded p-4 bg-blue-form-field"
