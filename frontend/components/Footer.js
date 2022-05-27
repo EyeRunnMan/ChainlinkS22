@@ -14,7 +14,7 @@ const Footer = () => {
 
       <a
         className="ml-2 w-[7%] lg:w-[2%] md:w-[4%]"
-        href="https://moralis.io"
+        href="https://polygon.technology"
         target={"_blank"}
       >
         <img src="/images/polygon_logo.png"></img>
@@ -29,14 +29,14 @@ const Footer = () => {
       </a>
       <a
         className="ml-2 w-[7.2%] lg:w-[2.25%] md:w-[4.25%]"
-        href="https://moralis.io"
+        href="https://ipfs.io"
         target={"_blank"}
       >
         <img src="/images/ipfs_logo.png"></img>
       </a>
       <a
         className="ml-2 w-[7%] lg:w-[2%] md:w-[4%]"
-        href="https://moralis.io"
+        href="https://filecoin.io"
         target={"_blank"}
       >
         <img src="/images/filecoin-fil-logo.png"></img>
