@@ -65,7 +65,7 @@ const Navbar = () => {
                   </Link>
                 );
               })}
-              <div className="lg:mt-0 mt-4 lg:-ml-4 -ml-6  z-50 rounded-lg bg-wheat">
+              <div className="lg:mt-0 mt-4 lg:-ml-4  z-50 rounded-lg bg-white">
                 <ConnectButton />
               </div>
             </div>
