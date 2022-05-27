@@ -115,10 +115,10 @@ export default function Profile() {
             <h1 className="mt-20 font-bold text-3xl">
               YOUR COLLECTIONS (CONTRACTS)
             </h1>
-            <div className="flex flex-row">
+            <div className="flex flex-row flex-wrap">
               {user.attributes.contractsCreated.map(function (address) {
                 return (
-                  <div className="flex flex-wrap mt-8 text-blue-500 font-bold lg:w-40 ">
+                  <div className="mt-8 text-blue-500 font-bold lg:w-40 ">
                     <a
                       href={`https://mumbai.polygonscan.com/address/${address}`}
                       target="_blank"
