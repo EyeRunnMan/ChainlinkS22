@@ -84,7 +84,7 @@ export default function Profile() {
     });
     setMinting(true);
 
-    await delay(50000);
+    await delay(100000);
 
     let revealAIREXOptions = {
       abi: [
@@ -129,13 +129,13 @@ export default function Profile() {
                 );
               })}
             </div>
-            <h1 className="mt-20 font-bold text-3xl">MINT TOKEN</h1>
+            <h1 className="mt-12 font-bold text-3xl">MINT TOKEN</h1>
             <h4 className="mt-8 font-bold">COLLECTION</h4>
             <h4 className="w-140 mt-2 mb-2">
               Enter your collection's contract address
             </h4>
             <input
-              className="mt-2 border-blue-500 rounded p-4 w-80 bg-blue-form-field"
+              className="mt-2 border-blue-500 rounded p-4 lg:w-80 bg-blue-form-field"
               onChange={(e) => {
                 updateFormInput({ ...formInput, address: e.target.value });
               }}
@@ -143,7 +143,7 @@ export default function Profile() {
             <h4 className="mt-8 font-bold">TRAIT TYPE</h4>
             <h4 className="w-140 mt-2 mb-2">Specify a trait type string</h4>
             <input
-              className="mt-2 border-blue-500 rounded p-4 w-80 bg-blue-form-field"
+              className="mt-2 border-blue-500 rounded p-4 lg:w-80 bg-blue-form-field"
               onChange={(e) => {
                 updateFormInput({ ...formInput, trait_type: e.target.value });
               }}
@@ -151,7 +151,7 @@ export default function Profile() {
             <h4 className="mt-8 font-bold">TRAIT VALUE</h4>
             <h4 className="w-140 mt-2 mb-2">Specify a trait value string</h4>
             <input
-              className="mt-2 border-blue-500 rounded p-4 w-80 bg-blue-form-field"
+              className="mt-2 border-blue-500 rounded p-4 lg:w-80 bg-blue-form-field"
               onChange={(e) => {
                 updateFormInput({ ...formInput, trait_value: e.target.value });
               }}
@@ -164,7 +164,7 @@ export default function Profile() {
                 Mint NFT
               </button>
             ) : (
-              <div className="-mt-24 mb-14">
+              <div className="-mt-8 mb-14">
                 <LoadSpinner />
               </div>
             )}
